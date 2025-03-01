@@ -1,23 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Iframe Carousel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<nav id="nav">
+  <button onclick="vai_pra_seccao('nav')" class="en">Home</button>
+  <button onclick="vai_pra_seccao('nav')" aria-current="page" class="pt-BR">Página Inicial</button>
+  <button onclick="vai_pra_seccao('sobre')" class="pt-BR">Sobre</button>
+  <button onclick="vai_pra_seccao('sobre')" class="en">About</button>
+  <button onclick="vai_pra_seccao('projetos')" class="en">Projects</button>
+  <button onclick="vai_pra_seccao('projetos')" class="pt-BR">Projetos</button>
+  <!--<button href="/page2.html" class="en">Other page</a>
+  <button href="/page2.html" class="pt-BR">Outra página</a>-->
+  <button onclick="changeText()" class="pt-BR">EN</button>
+  <button onclick="changeText()" class="en">PT</button>
+</nav>
+<main>
+  <div id="destaque">
+    <h1 class="pt-BR">Destaques</h1>
+    <h1 class="en">Featured</h1>
+    <div class="carousel-container">
+      <!-- Slides -->
+    
+      <div class="slide active">
+        <iframe 
+          src="https://scratch.mit.edu/projects/561661946/embed" 
+          allowtransparency="true" 
+          width="485" 
+          height="402" 
+          frameborder="0" 
+          scrolling="no" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="slide">
+        <iframe 
+          src="https://scratch.mit.edu/projects/556304433/embed" 
+          allowtransparency="true" 
+          width="485" 
+          height="402" 
+          frameborder="0" 
+          scrolling="no" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="slide">
+        <iframe 
+          src="https://scratch.mit.edu/projects/556557833/embed" 
+          allowtransparency="true" 
+          width="485" 
+          height="402" 
+          frameborder="0" 
+          scrolling="no" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Carousel navigation buttons -->
+      <button class="prev-button">&#10094;</button>
+      <button class="next-button">&#10095;</button>
+    </div>
+  </div>
+  <div id="sobre">
+    <h2>Sobre mim</h2>
+    <p>Falar um pouco sobre mim aqui, bla bla bla whiskas sachê. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus dignissim arcu, in molestie justo molestie dignissim. Pellentesque et sem in augue venenatis ultricies eu at erat. Curabitur eu eleifend ex. Praesent pellentesque et justo ac mattis. Donec in condimentum magna. In at mi pulvinar, porttitor elit pulvinar, aliquam urna. Praesent vel mi condimentum, accumsan diam sed, ultrices lacus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam felis sem, accumsan in augue non, tincidunt convallis diam. Etiam sapien arcu, finibus in erat et, euismod condimentum nibh. Morbi sit amet bibendum metus, sit amet interdum lacus. Nulla vel cursus sem, at gravida quam. Phasellus urna leo, ornare sed enim eget, imperdiet pulvinar arcu. Phasellus dictum elit enim, non vehicula mauris posuere et. Vestibulum aliquet, lectus nec interdum dapibus, nisi urna aliquet leo, vel porta mauris odio vel nisl.
+
+      Proin consequat, lectus blandit imperdiet mattis, nibh purus tempor nisi, sit amet facilisis turpis massa ut odio. Aliquam eu tempus nunc. Pellentesque feugiat, risus ac luctus feugiat, lorem erat feugiat nisl, eget vehicula tellus est sed erat. In ligula odio, ullamcorper at ligula ut, semper accumsan nisl. Pellentesque aliquet nulla nec dictum varius. Vestibulum et nulla ut leo molestie laoreet. Nam non blandit lectus, eget molestie lorem. Phasellus a cursus nulla. Curabitur lacinia eleifend lacus, id pretium eros lacinia vitae. Quisque ac fermentum elit, iaculis porta tortor. Phasellus quam elit, fringilla sit amet porta sodales, vestibulum eu lacus. Vivamus id dui ac justo sagittis venenatis. Pellentesque in sapien eros.
+      
+      In in dolor felis. Vestibulum dignissim at dolor ac semper. Mauris molestie feugiat vulputate. In aliquam risus at sapien laoreet, in dapibus mi tristique. Vivamus consequat mauris ut ligula elementum dignissim. Nam non enim ante. Nunc blandit nibh vel feugiat dapibus. Nulla a lacus a nisi venenatis efficitur. Nullam aliquet urna a lectus semper facilisis. Ut ut dolor laoreet, ultricies dui et, dignissim dui. Pellentesque nisi massa, euismod eget nisl quis, tincidunt vulputate tortor. Nullam lacinia augue erat, a blandit urna pellentesque id. Praesent non sapien nec urna ultrices vehicula. In quis dolor luctus, interdum nunc sed, elementum libero. Quisque eu nisi fringilla, viverra urna sed, molestie tellus.
+      
+      Aliquam eu scelerisque turpis. Aliquam convallis imperdiet massa, non finibus sem tempus sed. In ante neque, scelerisque non odio a, eleifend suscipit urna. Fusce facilisis odio vitae magna vulputate semper. Aenean eleifend ligula eu ullamcorper pharetra. Nulla at sapien vitae ante tincidunt volutpat. Pellentesque et luctus sapien. Vivamus condimentum, dui sit amet ultricies commodo, ex ipsum egestas tellus, in interdum velit mi a urna. Donec a purus facilisis, lacinia diam ut, maximus nulla.
+      
+      Vivamus iaculis aliquam tellus sit amet faucibus. Proin tincidunt odio ac purus hendrerit blandit. Nam elementum vel velit ut lobortis. Vestibulum felis urna, molestie sed massa ut, pulvinar convallis mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ligula vel urna interdum sagittis eget vitae lacus. Duis sagittis ultrices convallis. Aenean vel orci fermentum, condimentum neque a, facilisis justo. Morbi iaculis tortor est, non auctor neque pulvinar sed. In et semper nulla. Mauris maximus orci risus, at feugiat magna mattis in. Phasellus neque ante, feugiat et augue vel, vehicula elementum magna. Donec quis magna rutrum enim ornare lacinia a ut odio.</p>
+  </div>
+  <br><br>
+  <div id="projetos">
+    <h2>Toma ai meus projetos pra ficar esperto, rapá</h2>
+    <div class="image-container">
+      <p>Jokenpo</p>
+      <img src="IMG/Jokenpo.png"/>
+      <div class="overlay-text">
+        <p>Esse projeto é muito massa</p>
+      </div>
+    </div>
+    <div class="image-container">
+      <p>Gato e Rato</p>
+      <img src="IMG/RatoEgato.jpg"/>
+      <div class="overlay-text">
+        <p>Esse projeto é muito massa</p>
+      </div>
+    </div>
+    <div class="image-container">
+      <p>Mandala</p>
+      <img src="IMG/SpyroGyro.jpg"/>
+      <div class="overlay-text">
+        <p>Esse projeto é muito massa</p>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
 </html>

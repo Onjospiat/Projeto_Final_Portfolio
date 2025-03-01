@@ -1,46 +1,153 @@
+/* Basic reset and styling */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  color: black;
-  background-color: white;
-}
-
-nav {
+  font-family: Arial, sans-serif;
   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+nav, .portfolio{
+  display: block;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  gap: 0.5rem;
-  border-bottom: solid 1px #aaa;
-  background-color: #eee;
-}
-
-nav a {
-  display: inline-block;
-  min-width: 9rem;
-  padding: 0.5rem;
-  border-radius: 0.2rem;
-  border: solid 1px #aaa;
+  width: 100%;
   text-align: center;
-  text-decoration: none;
-  color: #555;
-}
-
-nav a[aria-current='page'] {
-  color: #000;
-  background-color: #d4d4d4;
-}
-
-main {
+  margin-top: 2vw;
+  background-color: lightcyan;
+  border-bottom: 0.5rem solid #555;
   padding: 1rem;
 }
+button{
+  display: inline-block;
+  padding: 1rem;
+  margin: 1vw;
+  border-radius: 0.2rem;
+  border: solid 1px black;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  background-color: lightcyan;
+  color:#008CBA;
+  transition-duration: 0.4s;
+}
 
-h1 {
-  font-weight: bold;
-  font-size: 1.5rem;
+button:hover{
+  background-color: #008CBA;
+  color: #fff;
+}
+
+#destaque{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: lightblue;
+}
+
+.en{
+  display: none;
+}
+
+h1{
+  padding-top: 5vh;
+}
+
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  width: 485px; /* match iframe width */
+  height: 415px; /* match iframe height */
+  overflow: hidden;
+  border: 2px solid #000;
+  border-radius: 8px;
+  background: #fff;
+  margin: 2vw auto;
+}
+
+/* Each Slide */
+.slide {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* Hidden by default */
+  /* You could add transitions if you want fancy animations */
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+}
+
+/* Navigation Buttons */
+.prev-button, 
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.3);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 0 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 3px;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  background-color: rgba(0,0,0,0.5);
+}
+
+#projetos{
+  display: inline-grid;
+  width:100%;
+}
+
+.image-container {
+  position: relative;      
+  height: auto;       
+  overflow: hidden;   
+}
+
+.image-container img {
+  /*display: block;       /* remove default inline spacing around images */
+  transition: opacity 0.5s ease; /* fade transition */
+}
+
+/* Overlay text, absolutely centered */
+.overlay-text {
+  position: absolute;
+  top: 50%;             /* center it vertically */
+  left: 50%;            /* center it horizontally */
+  transform: translate(-50%, -50%);
+  color: #000;          /* text color, e.g. white */
+  font-size: 1.2rem;
+  text-align: center;   /* center text if multiple lines */
+  opacity: 0;           /* start hidden */
+  transition: opacity 0.5s ease; /* fade in/out transition */
+}
+
+/* On hover, fade out the image and show the text */
+.image-container:hover img {
+  opacity: 0.3;  /* reduce image opacity for a “fade out” effect */
+}
+
+.image-container:hover .overlay-text {
+  opacity: 1;    /* text fades in */
 }
