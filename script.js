@@ -82,5 +82,5 @@ function vai_pra_secao(nome_secao) {
   }
 }
 
-/* Expose vai_pra_seccao globally */
+/* Expose vai_pra_secao globally */
 window.vai_pra_secao = vai_pra_secao;
