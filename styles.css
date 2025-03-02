@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
   background: #f4f4f4;
 }
-nav, .portfolio{
+nav{
   display: block;
   flex-wrap: wrap;
   width: 100%;
@@ -22,6 +22,7 @@ nav, .portfolio{
   border-bottom: 0.5rem solid #555;
   padding: 1rem;
 }
+
 button{
   display: inline-block;
   padding: 1rem;
@@ -55,6 +56,10 @@ button:hover{
 
 h1{
   padding-top: 5vh;
+}
+
+h2{
+  width:100%
 }
 
 /* Carousel Container */
@@ -115,39 +120,77 @@ h1{
 }
 
 #projetos{
-  display: inline-grid;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
   width:100%;
 }
 
 .image-container {
-  position: relative;      
-  height: auto;       
-  overflow: hidden;   
+  position:relative;
+  display: inline-block;
+  overflow: hidden;
 }
 
 .image-container img {
-  /*display: block;       /* remove default inline spacing around images */
-  transition: opacity 0.5s ease; /* fade transition */
+  transition: opacity 0.5s ease;
+  display: block;
 }
 
-/* Overlay text, absolutely centered */
 .overlay-text {
   position: absolute;
   top: 50%;             /* center it vertically */
   left: 50%;            /* center it horizontally */
-  transform: translate(-50%, -50%);
-  color: #000;          /* text color, e.g. white */
+  transform: translate(-70%, -70%);
+  color: #fff;          /* text color, e.g. white */
   font-size: 1.2rem;
   text-align: center;   /* center text if multiple lines */
+  align-items: center;
   opacity: 0;           /* start hidden */
   transition: opacity 0.5s ease; /* fade in/out transition */
+  z-index: 2;
+}
+
+.fundo_img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6); /* darker or lighter as you prefer */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1; /* so it appears above the img, but below .overlay-text */
 }
 
 /* On hover, fade out the image and show the text */
 .image-container:hover img {
   opacity: 0.3;  /* reduce image opacity for a “fade out” effect */
+  background-color: #000;
 }
 
 .image-container:hover .overlay-text {
   opacity: 1;    /* text fades in */
+}
+
+.image-container:hover .fundo_img{
+  opacity: 1;
+}
+
+@media screen and (max-width:1000px){
+  #projetos{
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+    align-items: center;
+  }
+  img{
+    display: block;
+    margin: 0 auto
+  }
+}
+
+@media screen and (max-width:1500px){
+  #projetos{
+    grid-template-columns: repeat(2,1fr);
+  }
 }
