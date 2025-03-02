@@ -1,4 +1,4 @@
-/* Basic reset and styling */
+/* ---------- Global Reset and Basic Styles ---------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,43 +6,47 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  display: flex;
+  font-family: "Comic Neue", serif;
+  display: flex;               /* Use flex for top-to-bottom layout */
   flex-direction: column;
   min-height: 100vh;
   background: #f4f4f4;
 }
-nav{
-  display: block;
-  flex-wrap: wrap;
+
+/* ---------- Navigation Bar ---------- */
+nav {
+  display: block;              /* Not flex, so 'flex-wrap' not needed */
   width: 100%;
   text-align: center;
-  margin-top: 2vw;
+  /*margin-top: 2vw;*/
   background-color: lightcyan;
   border-bottom: 0.5rem solid #555;
   padding: 1rem;
 }
 
-button{
+/* Buttons in the nav (including language toggle) */
+button {
   display: inline-block;
   padding: 1rem;
   margin: 1vw;
-  border-radius: 0.2rem;
-  border: solid 1px black;
   font-size: 1.2rem;
+  font-family: "Comic Neue", serif;
+  font-weight: 700;
+  border: 1px solid #000;
   border-radius: 12px;
   background-color: lightcyan;
-  color:#008CBA;
-  transition-duration: 0.4s;
+  color: #008CBA;
+  transition: 0.4s; /* smooth hover transition */
 }
 
-button:hover{
+button:hover {
   background-color: #008CBA;
   color: #fff;
 }
 
-#destaque{
-  display: flex;
+/* ---------- "Destaque / Featured" Section ---------- */
+#destaque {
+  display: flex;               /* center the carousel + headings horizontally */
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -50,48 +54,80 @@ button:hover{
   background-color: lightblue;
 }
 
-.en{
+#sobre{
+  border-top: 2px solid rgba(0,0,0,0.6);
+  border-bottom: 2px solid rgba(0,0,0,0.6);
+  padding:2vw
+}
+
+/* Hide English or Portuguese headings by default (for language toggle) */
+.en {
   display: none;
 }
 
-h1{
+h1,h2,h3{
+  font-family: "Lobster Two", serif;
+  font-weight: 700;
+}
+
+h1 {
   padding-top: 5vh;
+  font-size: 3rem;
 }
 
-h2{
-  width:100%
+h2 {
+ padding: 1vh 0 1vh;
+ font-size: 2rem;
 }
 
-/* Carousel Container */
+h3{
+  position: absolute;
+  top: -1.5rem;
+  left: 0px;
+  z-index: 3;
+  margin: 0;
+  color: #000;
+  overflow: visible;
+}
+
+#sobre p{
+  font-size: 1rem;
+  padding-right: 5vw;
+}
+
+#projetos p{
+  font-size: 1.5rem;
+}
+
+/* ---------- Carousel Container + Slides ---------- */
 .carousel-container {
   position: relative;
-  width: 485px; /* match iframe width */
+  width: 485px;  /* match iframe width */
   height: 415px; /* match iframe height */
   overflow: hidden;
   border: 2px solid #000;
   border-radius: 8px;
   background: #fff;
-  margin: 2vw auto;
+  margin: 2vw auto; /* center it and add vertical margin */
 }
 
-/* Each Slide */
+/* Slides are stacked absolutely; only one is .active at a time */
 .slide {
   position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: none; /* Hidden by default */
-  /* You could add transitions if you want fancy animations */
+  display: none;         /* hidden by default */
   transition: opacity 0.5s ease-in-out;
 }
 
 .slide.active {
-  display: block;
+  display: block;        /* the current slide is visible */
 }
 
-/* Navigation Buttons */
-.prev-button, 
+/* Carousel Navigation Buttons */
+.prev-button,
 .next-button {
   position: absolute;
   top: 50%;
@@ -106,91 +142,93 @@ h2{
   border-radius: 3px;
 }
 
-.prev-button {
-  left: 10px;
-}
-
-.next-button {
-  right: 10px;
-}
+.prev-button { left: 10px; }
+.next-button { right: 10px; }
 
 .prev-button:hover,
 .next-button:hover {
   background-color: rgba(0,0,0,0.5);
 }
 
-#projetos{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  width:100%;
+/* ---------- "Projetos / Projects" Section ---------- */
+#projetos {
+  display: grid;             /* grid by default (3 columns) */
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
 }
 
+/* Each project has an image container with overlay fade effect */
 .image-container {
-  position:relative;
-  display: inline-block;
-  overflow: hidden;
+  position: relative;
+  width:487px;
+  height:387px;
+  margin: 1rem;
 }
 
 .image-container img {
-  transition: opacity 0.5s ease;
   display: block;
+  width:100%;
+  height:100%;
+  transition: opacity 0.5s ease; /* fade out on hover */
 }
 
-.overlay-text {
+/* Dark overlay that appears on hover */
+.fundo_img {
   position: absolute;
-  top: 50%;             /* center it vertically */
-  left: 50%;            /* center it horizontally */
-  transform: translate(-70%, -70%);
-  color: #fff;          /* text color, e.g. white */
-  font-size: 1.2rem;
-  text-align: center;   /* center text if multiple lines */
-  align-items: center;
-  opacity: 0;           /* start hidden */
-  transition: opacity 0.5s ease; /* fade in/out transition */
-  z-index: 2;
-}
-
-.fundo_img{
-  position: absolute;
-  top: 0;
+  top: 0; 
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.6); /* darker or lighter as you prefer */
+  background-color: rgba(0,0,0,0.6);
   opacity: 0;
   transition: opacity 0.5s ease;
-  z-index: 1; /* so it appears above the img, but below .overlay-text */
+  z-index: 1; /* behind text but above img */
 }
 
-/* On hover, fade out the image and show the text */
+/* Text overlay that appears above the dark background */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 2; /* above fundo_img */
+}
+
+/* Hover effects: fade img, show text + overlay */
 .image-container:hover img {
-  opacity: 0.3;  /* reduce image opacity for a “fade out” effect */
-  background-color: #000;
+  opacity: 0.3;
 }
 
-.image-container:hover .overlay-text {
-  opacity: 1;    /* text fades in */
-}
-
-.image-container:hover .fundo_img{
+.image-container:hover .fundo_img {
   opacity: 1;
 }
 
-@media screen and (max-width:1000px){
-  #projetos{
-    display:flex;
-    flex-direction:column;
-    width: 100%;
-    align-items: center;
-  }
-  img{
-    display: block;
-    margin: 0 auto
+.image-container:hover .overlay-text {
+  opacity: 1;
+}
+
+/* ---------- Responsive Breakpoints ---------- */
+/* If screen is narrower than 1500px, switch to 2 columns */
+@media (max-width: 1500px) {
+  #projetos {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media screen and (max-width:1500px){
-  #projetos{
-    grid-template-columns: repeat(2,1fr);
+/* If screen is narrower than 1000px, stack projects vertically */
+@media (max-width: 1000px) {
+  #projetos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  img {
+    margin: 0 auto; /* center the image horizontally */
   }
 }

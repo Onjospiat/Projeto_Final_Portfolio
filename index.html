@@ -3,109 +3,177 @@
 <head>
   <meta charset="utf-8" />
   <title>Iframe Carousel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+<!-- NAVIGATION with Language Toggle & Smooth Scroll Buttons -->
 <nav id="nav">
-  <button onclick="vai_pra_seccao('nav')" class="en">Home</button>
-  <button onclick="vai_pra_seccao('nav')" aria-current="page" class="pt-BR">Página Inicial</button>
-  <button onclick="vai_pra_seccao('sobre')" class="pt-BR">Sobre</button>
-  <button onclick="vai_pra_seccao('sobre')" class="en">About</button>
-  <button onclick="vai_pra_seccao('projetos')" class="en">Projects</button>
-  <button onclick="vai_pra_seccao('projetos')" class="pt-BR">Projetos</button>
-  <!--<button href="/page2.html" class="en">Other page</a>
-  <button href="/page2.html" class="pt-BR">Outra página</a>-->
+  <!-- "Home" Buttons -->
+  <button onclick="vai_pra_secao('nav')" class="en">Home</button>
+  <button onclick="vai_pra_secao('nav')" aria-current="page" class="pt-BR">Página Inicial</button>
+  
+  <!-- "Sobre / About" Buttons -->
+  <button onclick="vai_pra_secao('sobre')" class="pt-BR">Sobre</button>
+  <button onclick="vai_pra_secao('sobre')" class="en">About</button>
+  
+  <!-- "Projetos / Projects" Buttons -->
+  <button onclick="vai_pra_secao('projetos')" class="en">Projects</button>
+  <button onclick="vai_pra_secao('projetos')" class="pt-BR">Projetos</button>
+  
+  <!-- Language Toggle Buttons -->
   <button onclick="changeText()" class="pt-BR">EN</button>
   <button onclick="changeText()" class="en">PT</button>
 </nav>
+
 <main>
+  <!-- "Destaque / Featured" Section + Carousel -->
   <div id="destaque">
     <h1 class="pt-BR">Destaques</h1>
     <h1 class="en">Featured</h1>
-    <div class="carousel-container">
-      <!-- Slides -->
     
+    <div class="carousel-container">
+      <!-- Carousel Slides -->
       <div class="slide active">
         <iframe 
-          src="https://scratch.mit.edu/projects/561661946/embed" 
-          allowtransparency="true" 
-          width="485" 
-          height="402" 
-          frameborder="0" 
-          scrolling="no" 
+          src="https://scratch.mit.edu/projects/561661946/embed"
+          allowtransparency="true"
+          width="485"
+          height="402"
+          frameborder="0"
+          scrolling="no"
           allowfullscreen>
         </iframe>
       </div>
       <div class="slide">
         <iframe 
-          src="https://scratch.mit.edu/projects/556304433/embed" 
-          allowtransparency="true" 
-          width="485" 
-          height="402" 
-          frameborder="0" 
-          scrolling="no" 
+          src="https://scratch.mit.edu/projects/556304433/embed"
+          allowtransparency="true"
+          width="485"
+          height="402"
+          frameborder="0"
+          scrolling="no"
           allowfullscreen>
         </iframe>
       </div>
       <div class="slide">
         <iframe 
-          src="https://scratch.mit.edu/projects/556557833/embed" 
-          allowtransparency="true" 
-          width="485" 
-          height="402" 
-          frameborder="0" 
-          scrolling="no" 
+          src="https://scratch.mit.edu/projects/556557833/embed"
+          allowtransparency="true"
+          width="485"
+          height="402"
+          frameborder="0"
+          scrolling="no"
           allowfullscreen>
         </iframe>
       </div>
 
-      <!-- Carousel navigation buttons -->
+      <!-- Carousel Prev/Next Buttons -->
       <button class="prev-button">&#10094;</button>
       <button class="next-button">&#10095;</button>
     </div>
   </div>
-  <div id="sobre">
-    <h2>Sobre mim</h2>
-    <p>Falar um pouco sobre mim aqui, bla bla bla whiskas sachê. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus dignissim arcu, in molestie justo molestie dignissim. Pellentesque et sem in augue venenatis ultricies eu at erat. Curabitur eu eleifend ex. Praesent pellentesque et justo ac mattis. Donec in condimentum magna. In at mi pulvinar, porttitor elit pulvinar, aliquam urna. Praesent vel mi condimentum, accumsan diam sed, ultrices lacus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam felis sem, accumsan in augue non, tincidunt convallis diam. Etiam sapien arcu, finibus in erat et, euismod condimentum nibh. Morbi sit amet bibendum metus, sit amet interdum lacus. Nulla vel cursus sem, at gravida quam. Phasellus urna leo, ornare sed enim eget, imperdiet pulvinar arcu. Phasellus dictum elit enim, non vehicula mauris posuere et. Vestibulum aliquet, lectus nec interdum dapibus, nisi urna aliquet leo, vel porta mauris odio vel nisl.
 
-      Proin consequat, lectus blandit imperdiet mattis, nibh purus tempor nisi, sit amet facilisis turpis massa ut odio. Aliquam eu tempus nunc. Pellentesque feugiat, risus ac luctus feugiat, lorem erat feugiat nisl, eget vehicula tellus est sed erat. In ligula odio, ullamcorper at ligula ut, semper accumsan nisl. Pellentesque aliquet nulla nec dictum varius. Vestibulum et nulla ut leo molestie laoreet. Nam non blandit lectus, eget molestie lorem. Phasellus a cursus nulla. Curabitur lacinia eleifend lacus, id pretium eros lacinia vitae. Quisque ac fermentum elit, iaculis porta tortor. Phasellus quam elit, fringilla sit amet porta sodales, vestibulum eu lacus. Vivamus id dui ac justo sagittis venenatis. Pellentesque in sapien eros.
-      
-      In in dolor felis. Vestibulum dignissim at dolor ac semper. Mauris molestie feugiat vulputate. In aliquam risus at sapien laoreet, in dapibus mi tristique. Vivamus consequat mauris ut ligula elementum dignissim. Nam non enim ante. Nunc blandit nibh vel feugiat dapibus. Nulla a lacus a nisi venenatis efficitur. Nullam aliquet urna a lectus semper facilisis. Ut ut dolor laoreet, ultricies dui et, dignissim dui. Pellentesque nisi massa, euismod eget nisl quis, tincidunt vulputate tortor. Nullam lacinia augue erat, a blandit urna pellentesque id. Praesent non sapien nec urna ultrices vehicula. In quis dolor luctus, interdum nunc sed, elementum libero. Quisque eu nisi fringilla, viverra urna sed, molestie tellus.
-      
-      Aliquam eu scelerisque turpis. Aliquam convallis imperdiet massa, non finibus sem tempus sed. In ante neque, scelerisque non odio a, eleifend suscipit urna. Fusce facilisis odio vitae magna vulputate semper. Aenean eleifend ligula eu ullamcorper pharetra. Nulla at sapien vitae ante tincidunt volutpat. Pellentesque et luctus sapien. Vivamus condimentum, dui sit amet ultricies commodo, ex ipsum egestas tellus, in interdum velit mi a urna. Donec a purus facilisis, lacinia diam ut, maximus nulla.
-      
-      Vivamus iaculis aliquam tellus sit amet faucibus. Proin tincidunt odio ac purus hendrerit blandit. Nam elementum vel velit ut lobortis. Vestibulum felis urna, molestie sed massa ut, pulvinar convallis mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ligula vel urna interdum sagittis eget vitae lacus. Duis sagittis ultrices convallis. Aenean vel orci fermentum, condimentum neque a, facilisis justo. Morbi iaculis tortor est, non auctor neque pulvinar sed. In et semper nulla. Mauris maximus orci risus, at feugiat magna mattis in. Phasellus neque ante, feugiat et augue vel, vehicula elementum magna. Donec quis magna rutrum enim ornare lacinia a ut odio.</p>
+  <!-- "Sobre / About" Section -->
+  <div id="sobre">
+    <h2 class="pt-BR">Sobre mim</h2>
+    <h2 class="en">About Me</h2>
+    <p class="pt-BR">
+      Falar um pouco sobre mim aqui, bla bla bla whiskas sachê. Essa seção é importante para colocar um pouco sobre quem eu sou, o que eu faço e outras informações que podem ser relevantes nesse portfólio. Posso preencher com dados sobre coisas que eu fiz, com meus diplomas, ou outras características minhas que sejam relevantes. O improtante é ter um texto aqui para poder preencher esse espaço e as pessoas me conhecerem.
+      <br>
+      <br>
+      Fala, pessoal! Meu nome é Guilherme Chini Gani e moro na Av. Heitor Beltrão, 199/301, Tijuca, CEP 20550-000, Rio de Janeiro. Meu telefone é (21) 996-370-767, e também tenho meu perfil no LinkedIn (www.linkedin.com/in/guilhermegani) e uso o e-mail guilherme.chini.gani@gmail.com pra contato.
+      <br><br>
+      Minha experiência profissional é bem variada. De agosto a dezembro de 2024, trabalhei como professor de robótica com Lego no Genius Lab, um projeto bancado pelo Google via Lei Rouanet que rolou lá na Biblioteca Parque Estadual do Rio. Eu e outro professor demos aula pra galera e montamos todo o currículo também. Depois, de agosto de 2024 a julho de 2025, fui criador de conteúdo e de e-book na Edify Coding, empresa que ensina programação pra crianças e adolescentes. Lá, ajudei a elaborar o material didático, o site de ensino e um programa de treinamento pros professores.
+      <br><br>
+      No mesmo ano de 2024, mas entre junho e dezembro, dei aulas de Excel pros gerentes da Estapar aqui no Rio, ajudando a galera a chegar num nível avançado de Excel conforme as diretrizes da Microsoft. As aulas aconteciam presencialmente, com turmas de até 15 alunos, e a gente resolvia dúvidas reais do dia a dia de trabalho. Já a partir de maio de 2024 até hoje, sou professor de inglês na Improving Skills, dando aulas particulares pra alunos de várias idades, inclusive pra preparar pra provas como TOEFL e KET (Cambridge). Ensino outras matérias também, dependendo da necessidade dos alunos.
+      <br><br>
+      De novembro de 2022 a dezembro de 2023, fui Lead de coding na Abacus, uma startup com um jogo educacional que transformava assinatura em gift cards pros estudantes, caso eles cumprissem as tarefas no aplicativo. Lá, coordenei a equipe que criava as aulas de programação. A gente usou o ChatGPT pra melhorar textos, o Midjourney pras artes e o Media IO pra gerar áudio a partir de texto. A Abacus acabou sendo vendida em dezembro de 2023 e encerrou as atividades.
+      <br><br>
+      Antes disso, de fevereiro de 2020 a outubro de 2022, coordenei o time de conteúdo pedagógico na codeBuddy, criando currículos, recolhendo feedback, analisando dados de uso e escrevendo roteiros de vídeo-aula. Organizei também as colônias de férias. Foi lá que a gente fechou parceria com a Disney pra usar personagens como Moana, Toy Story e Carros nas aulas — eu chefiava as reuniões semanais e toquei esse projeto. Entre janeiro de 2019 e janeiro de 2020, fui coordenador pedagógico e sócio na CodeComet, que também focava no ensino de programação pra jovens. Dei aula, treinei professores, cuidei da captação de clientes e renovei o material didático.
+      <br><br>
+      De janeiro de 2017 a dezembro de 2018, trabalhei na Madcode como professor de programação e administrador financeiro, dando aulas em escolas como a EARJ (Escola Americana do Rio) e o Eleva, além de ter reformulado o currículo pra atender melhor os alunos, que variavam entre 5 e 17 anos. Já de dezembro de 2015 a julho de 2016, fui coordenador de Game Design na Ratto Software, liderando quatro programadores e três artistas, planejando e supervisionando a produção de até quatro jogos ao mesmo tempo, usando ferramentas como Trello. Um desses jogos chegou a ser finalista num concurso com mais de 5 mil inscritos (Brazil Independent Games) e ficou entre os 20 mais vendidos na Play Store e na AppStore quando foi lançado. Antes disso, de janeiro a dezembro de 2015, também atuei como Game Designer na Ratto Software, cuidando da concepção, produção, divulgação e balanceamento dos jogos, além do planejamento financeiro.
+      <br><br>
+      Mais pra trás, de dezembro de 2013 a julho de 2014, fiz estágio como webdesigner na Dufry, cuidando do visual de três sites, aumentando reservas via SEO, otimizando processos internos com VBA no Excel (o que reduziu um trabalhão manual) e bolando novas formas de apresentar promoções. Já de junho de 2011 a novembro de 2013, comecei também na Ratto Software, mas como Game Designer (estágio), responsável por concepção e acompanhamento de produção de jogos. Participei do desenvolvimento do jogo Telhados Verdes, em parceria com a Oi, que chegou a mais de 1 milhão de usuários no Facebook.
+      <br><br>
+      Sobre meus estudos, atualmente tô cursando Licenciatura em Computação na Estácio, com previsão de conclusão em 2029. Também fiz Design de Mídias Digitais na PUC-RJ, de 2010 a 2016, e antes disso cursei um tempo de Engenharia de Computação na PUC-RJ, de 2006 a 2009 (sem concluir). No ensino básico, estudei no Colégio pH (2002 a 2005) e na Escola Americana do Rio (1991 a 2002). 
+      <br><br>
+      Falo inglês e português fluentemente, tenho nível avançado de Pacote Office, manjo de ChatGPT e tenho experiência em gestão financeira pra pequenas empresas e em docência. Quanto a programação, conheço C++, Python e JavaScript, além de ter feito diversos cursos: Programação em C++ na T&T, Programação Web no SENAC, Modelagem Virtual em 3DS Max no CCE PUC-Rio e Tecnologias e Educação na PUC-Rio, entre outros. Também usei bastante a plataforma Codeacademy pra estudar Python e JavaScript.
+      <br><br>
+    </p>
+    <p class="en">
+      Talk a little bit about myself here, blah blah blah “whiskas sachê.” This section is important to include some information about who I am, what I do, and other details that might be relevant in this portfolio. I can fill it with facts about things I’ve done, my diplomas, or other relevant traits. The important thing is to have some text here to occupy this space so that people can get to know me.
+      <br><br>
+      My name is Guilherme Chini Gani, and I live at Av. Heitor Beltrão, 199/301, Tijuca, ZIP Code 20550-000, Rio de Janeiro, RJ, Brazil. My phone number is +55 (21) 996-370-767, my LinkedIn profile is www.linkedin.com/in/guilhermegani, and my email address is guilherme.chini.gani@gmail.com.
+      <br><br>
+      My professional experience includes working as a LEGO robotics teacher at Genius Lab from August 2024 to December 2024, an initiative sponsored by Google through the Rouanet Law for cultural incentives, held at Biblioteca Parque Estadual in Rio and coordinated by Quest. Together with another teacher, I conducted classes and designed the curriculum. From August 2024 to July 2025, I worked at Edify Coding creating content and an e-book for a programming education solution aimed at children and teenagers, helping to develop educational materials, an online platform, and a teacher training program.
+      <br><br>
+      In 2024, from June to December, I was hired by Estapar to teach Excel to managers at their Rio branch, focusing on advanced-level mastery based on Microsoft guidelines. The classes were held in person, in groups of up to 15 students, and involved real-world problem-solving from their daily workflow. Since May 2024, I have been working with Improving Skills as an English teacher, offering private lessons to students of various ages, preparing them for tests such as TOEFL and KET (Cambridge), as well as teaching other subjects as needed.
+      <br><br>
+      Between November 2022 and December 2023, I served as the Lead of Coding at Abacus, a startup that developed an educational game with a “smart allowance” concept in which subscriptions were converted into gift cards for students as they completed tasks in the app, such as English and programming lessons. I coordinated the team that created these lessons, making use of ChatGPT for text improvement, Midjourney for images, and Media IO for text-to-speech audio, until the company was sold and ceased operations in December 2023.
+      <br><br>
+      From February 2020 to October 2022, I was a content coordinator at codeBuddy, leading the educational content team, creating the school curriculum, gathering feedback, analyzing usage analytics, writing scripts for video lessons, and organizing holiday camps. During that time, we partnered with Disney to develop classes using their characters, such as Moana, Toy Story, and Cars. I led the weekly meetings and oversaw this project. Prior to that, from January 2019 to January 2020, I was a pedagogical coordinator and partner at CodeComet, a company specializing in programming for young learners. I taught classes, trained new teachers, secured new clients, and updated the teaching materials.
+      <br><br>
+      From January 2017 to December 2018, I worked at Madcode as a programming teacher and financial administrator, teaching in schools like EARJ (the American School of Rio de Janeiro) and Eleva, among others, and updating the curriculum to meet the evolving needs of students aged 5 to 17. Then, from December 2015 to July 2016, I was a Game Design Coordinator at Ratto Software, managing four programmers and three artists, supervising schedules for up to four simultaneous games, and handling business plans and documentation. One of our games was a finalist in the Brazil Independent Games contest, with over five thousand entries, and ended up among the top 20 paid games on both the Play Store and App Store upon release.
+      <br><br>
+      Previously, from January to December 2015, I worked at Ratto Software as a Game Designer, coordinating the programming team and overseeing the conceptualization, production, promotion, and balancing of the games, as well as financial planning. From December 2013 to July 2014, I interned as a web designer at Dufry, maintaining the visual identity of three websites, boosting reservation rates through SEO, and optimizing internal processes with a VBA-based Excel system that significantly reduced manual errors. Before that, from June 2011 to November 2013, I was a Game Designer intern at Ratto Software, focused on the conceptualization and production monitoring of digital games and social media content. One major project, Telhados Verdes (Green Rooftops), was developed in partnership with Oi for Facebook, reaching over a million users.
+      <br><br>
+      Regarding my education, I am currently pursuing a Computing Teaching License (Licenciatura em Computação) at Estácio, expected to be completed by 2029. I studied Digital Media Design at PUC-Rio from 2010 to 2016, and before that, I began a Computer Engineering course at PUC-Rio from 2006 to 2009, which I did not complete. My academic background also includes Colégio pH (2002–2005) and the American School of Rio de Janeiro (1991–2002). 
+      <br><br>
+      I am fluent in English and Portuguese, proficient in the Office Suite, experienced with ChatGPT, and knowledgeable in financial management for small businesses and teaching methodologies. My programming skills include C++, Python, and JavaScript, among others. I have completed various courses, such as C++ Programming at T&T, Web Programming at SENAC, 3DS Max Virtual Modeling at CCE PUC-Rio, and “Technologies and Education: New Ways of Teaching and Learning” at PUC-Rio. I have also used Codeacademy extensively for Python and JavaScript.
+      <br><br>
+    </p>
   </div>
-  <br><br>
-  <h2>Toma ai meus projetos pra ficar esperto, rapá</h2>
+
+  <p class="en">&nbsp</p><p class="pt-BR">&nbsp</p>
+  <h2 class="pt-BR">Projetos</h2>
+  <h2 class="en">Projects</h2>
+  <p class="en">&nbsp</p><p class="pt-BR">&nbsp</p>
+
+  <!-- "Projetos / Projects" Section with Image Overlays -->
   <div id="projetos">
     <div class="image-container">
-      <p>Jokenpo</p>
-      <img src="IMG/Jokenpo.png"/>
+      <h3>Jokenpo</h3>
+      <img src="IMG/Jokenpo.png" />
+      <!-- Dark overlay and text for hover -->
       <div class="fundo_img"></div>
       <div class="overlay-text">
-        <p>Neste projeto, o aluno joga Pedra, Papel e Tesoura contra o computador. O adversário (o computador) irá selecionar uma das opções aleatóriamente e depois irá comparar com a sua seleção, definindo o vencedor.</p>
+        <p class="pt-BR">
+          Neste projeto, o jogador escolhe Pedra, Papel e Tesoura contra o computador. 
+          O computador escolhe uma opção aleatoriamente e compara com a sua opção, definindo o vencedor.
+        </p>
+        <p class="en">
+          In this project, the player chooses Rock, Paper or Scissors against the computer. 
+          The computer then picks a random option between these and compares it with your choice, defining the winner.
+        </p>
       </div>
     </div>
+
     <div class="image-container">
-      <p>Gato e Rato</p>
-      <img src="IMG/RatoEgato.jpg"/>
+      <h3>Gato e Rato</h3>
+      <img src="IMG/RatoEgato.jpg" />
       <div class="fundo_img"></div>
       <div class="overlay-text">
-        <p>Esse projeto é muito massa</p>
+        <p class="pt-BR">Aqui, o jogador controla o rato com as setas do teclado e deve comer o máximo de comida possível antes de ser pego pelo gato. Para te ajudar a fugir, o rato pode entrar nas paredes para sair do outro lado!</p>
+        <p class="en">Here, the player controls the mouse using the arrow keys and needs to eat as much food as possible before being caught by the cat. To help you escape, the mouse can go into the walls and come out on the other side!</p>
       </div>
     </div>
+
     <div class="image-container">
-      <p>Mandala</p>
-      
-      <img src="IMG/SpyroGyro.jpg"/>
+      <h3>Mandala</h3>
+      <img src="IMG/SpyroGyro.jpg" />
       <div class="fundo_img"></div>
       <div class="overlay-text">
-        <p>Esse projeto é muito massa</p>
+        <p class="pt-BR">Este projeto visual cria mandalas aleatórias a partir de parâmetros. Cada imagem é diferente!</p>
+        <p class="en">This visual project generates random mandalas based on parameters. Each image is different!</p>
       </div>
     </div>
   </div>
 </main>
+
 <script src="script.js"></script>
 </body>
 </html>

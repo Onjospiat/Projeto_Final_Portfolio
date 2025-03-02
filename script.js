@@ -1,16 +1,16 @@
-// Select all slides
-const slides = document.querySelectorAll('.slide');
+/* ------------------ CAROUSEL LOGIC ------------------ */
 
-// Current slide index
+/* Gather all slides and track current index */
+const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
 
-// Buttons
+/* Select carousel navigation buttons */
 const prevButton = document.querySelector('.prev-button');
 const nextButton = document.querySelector('.next-button');
 
-// Show the slide at index = currentSlide, hide others
+/* Function to show a slide by index */
 function showSlide(index) {
-  // Wrap around if out of range
+  // If index is out of bounds, wrap around
   if (index < 0) {
     currentSlide = slides.length - 1;
   } else if (index >= slides.length) {
@@ -18,17 +18,15 @@ function showSlide(index) {
   } else {
     currentSlide = index;
   }
-  
-  // Hide all slides first
-  slides.forEach(slide => {
-    slide.classList.remove('active');
-  });
+
+  // Hide all slides
+  slides.forEach(slide => slide.classList.remove('active'));
 
   // Show the current slide
   slides[currentSlide].classList.add('active');
 }
 
-// Listen for button clicks
+/* Move to previous/next slide on button clicks */
 prevButton.addEventListener('click', () => {
   showSlide(currentSlide - 1);
 });
@@ -37,50 +35,52 @@ nextButton.addEventListener('click', () => {
   showSlide(currentSlide + 1);
 });
 
-// Optional: If you want an auto-play effect, uncomment below
-/*
-setInterval(() => {
-  showSlide(currentSlide + 1);
-}, 3000); // change slides every 3 seconds
-*/
+/* ------------------ LANGUAGE TOGGLE ------------------ */
 
-var language = "pt-BR";
+/* Current language starts as pt-BR */
+let language = "pt-BR";
 
-function changeText(){
-    let x = document.getElementsByClassName("pt-BR");
-    let y = document.getElementsByClassName("en");
-    console.log(x);
-    console.log(y);
-    let i=0;
-    if(language == "pt-BR"){
-        language = "en";
-        for(i=0;i<x.length;i++){
-            x[i].style.display = "inline-block";
-        }
-        for(i=0;i<y.length;i++){
-            y[i].style.display = "none";
-        }
-        document.documentElement.setAttribute("lang", "en");
+/* Switch between pt-BR and en */
+function changeText() {
+  const portugueseElems = document.getElementsByClassName("pt-BR");
+  const englishElems = document.getElementsByClassName("en");
+
+  if (language === "pt-BR") {
+    // Switch to English
+    language = "en";
+    for (let i = 0; i < portugueseElems.length; i++) {
+      portugueseElems[i].style.display = "inline-block";
     }
-    else if(language == "en"){
-        language = "pt-BR";
-        for(i=0;i<x.length;i++){
-            x[i].style.display = "none";
-        }
-        for(i=0;i<y.length;i++){
-            y[i].style.display = "inline-block";
-        }
-        document.documentElement.setAttribute("lang", "pt");
+    for (let i = 0; i < englishElems.length; i++) {
+      englishElems[i].style.display = "none";
     }
+    document.documentElement.setAttribute("lang", "en");
+  } else {
+    // Switch back to Portuguese
+    language = "pt-BR";
+    for (let i = 0; i < portugueseElems.length; i++) {
+      portugueseElems[i].style.display = "none";
+    }
+    for (let i = 0; i < englishElems.length; i++) {
+      englishElems[i].style.display = "inline-block";
+    }
+    document.documentElement.setAttribute("lang", "pt");
+  }
 }
 
+/* Expose changeText to the global scope so buttons can call it */
 window.changeText = changeText;
 
-function vai_pra_seccao(nome_seccao){
-    const elemento = document.getElementById(nome_seccao);
-    if(elemento){
-        elemento.scrollIntoView({ behavior: 'smooth' });
-    }
+
+/* ------------------ SMOOTH SCROLL ------------------ */
+
+/* Smoothly scroll to a section by its ID */
+function vai_pra_secao(nome_secao) {
+  const elemento = document.getElementById(nome_secao);
+  if (elemento) {
+    elemento.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
-window.vai_pra_seccao = vai_pra_seccao;
+/* Expose vai_pra_seccao globally */
+window.vai_pra_secao = vai_pra_secao;
